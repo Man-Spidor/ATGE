@@ -13,14 +13,21 @@ project "Game"
       "../ATGE/Source",
    }
 
-   forceincludes { "../MemTracker/Framework.h" }
+   forceincludes { "_WORKING_DIR/MemTracker/Framework.h" }
 
    targetdir ("../Binaries/" .. OutputDir .. "/%{prj.name}")
    objdir ("../Binaries/Intermediates/" .. OutputDir .. "/%{prj.name}")
+   
+   characterset ("MBCS")
 
    filter "system:windows"
        systemversion "latest"
-       defines { "WINDOWS" }
+       defines 
+       { 
+           "WINDOWS",
+		   "WINDOWS_TARGET_PLATFORM="$(TargetPlatformVersion)"",
+		   "MEMORY_LOGS_DIR=R"($(SolutionDir))"" 
+       }
 
    filter "configurations:Debug"
        defines { "DEBUG" }
