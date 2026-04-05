@@ -1,0 +1,14 @@
+*.vsidx
+.vs/ATGE/v17/.suo
+.vs/ATGE/v17/Browse.VC.db
+/.vs
+*.obj
+*.tlog
+*.log
+*.ilk
+*.idb
+*.lib
+*.pdb
+*.recipe
+*.exe
+/Logs

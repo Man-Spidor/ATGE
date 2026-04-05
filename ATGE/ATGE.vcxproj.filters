@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Graphics">
+      <UniqueIdentifier>{2E10C882-9AD0-43B9-630B-8D36CF8A8895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Graphics\DirectX12">
+      <UniqueIdentifier>{73430C2F-DF7A-54C6-E884-B8E9543B7BBF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Graphics\DirectX12\Shaders">
+      <UniqueIdentifier>{4C2B6AAF-B80E-79EF-C111-A72B2D743F40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Graphics\Shaders">
+      <UniqueIdentifier>{078318CF-73EF-D3C9-3CE3-6B27A80EF631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Math">
+      <UniqueIdentifier>{C7E5BF15-3350-748C-7C8E-2532E83752E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Platform">
+      <UniqueIdentifier>{42848203-AE44-FE39-777F-47B7E3FE4216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Platform\Input">
+      <UniqueIdentifier>{C1DDE26F-2D3F-C07D-B6AC-0630220DF73C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Platform\Windows">
+      <UniqueIdentifier>{7C50E91D-E8BC-A418-B1B0-3C761DDCC680}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Tools">
+      <UniqueIdentifier>{2EE342CE-1A9B-841B-83A2-5D776F791F0C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Defines.h" />
+  </ItemGroup>
+</Project>
