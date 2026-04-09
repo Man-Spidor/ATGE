@@ -141,7 +141,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\ATGEngine.h" />
+    <ClInclude Include="Source\Core\Tools\ATGELogger.h" />
+    <ClInclude Include="Source\Core\Tools\ATGEAssert.h" />
+    <ClInclude Include="Source\Core\Math\Align16.h" />
+    <ClInclude Include="Source\Core\Math\Constants.h" />
+    <ClInclude Include="Source\Core\Math\EnumDefine.h" />
+    <ClInclude Include="Source\Core\Math\MathApp.h" />
+    <ClInclude Include="Source\Core\Math\MathEngine.h" />
+    <ClInclude Include="Source\Core\Math\Matrix.h" />
+    <ClInclude Include="Source\Core\Math\MatrixMacros.h" />
+    <ClInclude Include="Source\Core\Math\Quat.h" />
+    <ClInclude Include="Source\Core\Math\QuatApp.h" />
+    <ClInclude Include="Source\Core\Math\Util.h" />
+    <ClInclude Include="Source\Core\Math\VectApp.h" />
+    <ClInclude Include="Source\Core\Math\Vector.h" />
+    <ClInclude Include="Source\Core\Memory\MemoryManager.h" />
     <ClInclude Include="Source\Defines.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Core\ATGEngine.cpp" />
+    <ClCompile Include="Source\Core\Tools\ATGELogger.cpp" />
+    <ClCompile Include="Source\Core\Math\Matrix.cpp" />
+    <ClCompile Include="Source\Core\Math\Quat.cpp" />
+    <ClCompile Include="Source\Core\Math\Util.cpp" />
+    <ClCompile Include="Source\Core\Math\VectApp.cpp" />
+    <ClCompile Include="Source\Core\Math\Vector.cpp" />
+    <ClCompile Include="Source\Core\Memory\MemoryManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

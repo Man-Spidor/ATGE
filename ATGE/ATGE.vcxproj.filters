@@ -4,18 +4,6 @@
     <Filter Include="Core">
       <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Graphics">
-      <UniqueIdentifier>{2E10C882-9AD0-43B9-630B-8D36CF8A8895}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Graphics\DirectX12">
-      <UniqueIdentifier>{73430C2F-DF7A-54C6-E884-B8E9543B7BBF}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Graphics\DirectX12\Shaders">
-      <UniqueIdentifier>{4C2B6AAF-B80E-79EF-C111-A72B2D743F40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Graphics\Shaders">
-      <UniqueIdentifier>{078318CF-73EF-D3C9-3CE3-6B27A80EF631}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Math">
       <UniqueIdentifier>{C7E5BF15-3350-748C-7C8E-2532E83752E1}</UniqueIdentifier>
     </Filter>
@@ -34,5 +22,71 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Defines.h" />
+    <ClInclude Include="Source\Core\Memory\MemoryManager.h" />
+    <ClInclude Include="Source\Core\Math\Align16.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Math\Constants.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Math\EnumDefine.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Math\MathApp.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Math\MathEngine.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Math\Matrix.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Math\MatrixMacros.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Math\Quat.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Math\QuatApp.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Math\Util.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Math\VectApp.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Math\Vector.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Tools\ATGEAssert.h">
+      <Filter>Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Tools\ATGELogger.h">
+      <Filter>Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\ATGEngine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Core\Memory\MemoryManager.cpp" />
+    <ClCompile Include="Source\Core\Math\Matrix.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Math\Quat.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Math\Util.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Math\VectApp.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Math\Vector.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Tools\ATGELogger.cpp">
+      <Filter>Core\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\ATGEngine.cpp" />
   </ItemGroup>
 </Project>
