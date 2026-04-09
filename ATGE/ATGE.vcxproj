@@ -141,7 +141,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Platform\WindowConfig.h" />
+    <ClInclude Include="Source\Core\Platform\PlatformInterface.h" />
     <ClInclude Include="Source\Core\ATGEngine.h" />
+    <ClInclude Include="Source\Core\Platform\Windows\WindowsHandles.h" />
     <ClInclude Include="Source\Core\Tools\ATGELogger.h" />
     <ClInclude Include="Source\Core\Tools\ATGEAssert.h" />
     <ClInclude Include="Source\Core\Math\Align16.h" />
@@ -160,6 +163,7 @@
     <ClInclude Include="Source\Defines.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\Platform\Windows\PI_Windows.cpp" />
     <ClCompile Include="Source\Core\ATGEngine.cpp" />
     <ClCompile Include="Source\Core\Tools\ATGELogger.cpp" />
     <ClCompile Include="Source\Core\Math\Matrix.cpp" />

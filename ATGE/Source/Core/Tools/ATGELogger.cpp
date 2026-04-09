@@ -1,6 +1,7 @@
 #include "ATGEAssert.h"
 
 // #include "Core/Platform/PrintAttorney.h"
+#include "Core/Platform/PlatformInterface.h"
 #include "Core/Memory/MemoryManager.h"
 
 #include <cstdarg>
@@ -29,7 +30,7 @@ namespace ATGE
 	bool Logger::shutdown()
 	{
 		// TODO: cleanup log file :P
-		delete s_Instance;
+		// delete s_Instance;
 		return true;
 	}
 
@@ -43,15 +44,12 @@ namespace ATGE
 
 	void Logger::privOut(LogLevel level)
 	{
-
 		snprintf(this->m_OutBuff, LogBuffSize, "%s%s", level_strings[static_cast<u32>(level)], this->m_Buff);
-
-		printf(this->m_OutBuff);
-
-		// if (level <= LogLevel::LEVEL_ERROR)
-		// 	PrintAttorney::ConsolePrintError(outMsg.c_str(), static_cast<u8>(level));
-		// else
-		// 	PrintAttorney::ConsolePrint(outMsg.c_str(), static_cast<u8>(level));
+		
+		if (level <= LogLevel::LEVEL_ERROR)
+			PlatformInterface::ConsolePrintError(this->m_OutBuff, static_cast<u8>(level));
+		else
+			PlatformInterface::ConsolePrint(this->m_OutBuff, static_cast<u8>(level));
 	}
 
 	void Logger::fatal(const char* const msg, ...)

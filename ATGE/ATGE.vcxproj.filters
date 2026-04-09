@@ -66,6 +66,9 @@
       <Filter>Core\Tools</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\ATGEngine.h" />
+    <ClInclude Include="Source\Core\Platform\PlatformInterface.h" />
+    <ClInclude Include="Source\Core\Platform\WindowConfig.h" />
+    <ClInclude Include="Source\Core\Platform\Windows\WindowsHandles.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Core\Memory\MemoryManager.cpp" />
@@ -88,5 +91,6 @@
       <Filter>Core\Tools</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\ATGEngine.cpp" />
+    <ClCompile Include="Source\Core\Platform\Windows\PI_Windows.cpp" />
   </ItemGroup>
 </Project>

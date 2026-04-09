@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Platform/PlatformInterface.h"
+
 namespace ATGE
 {
 	class ATGEngine final
@@ -16,6 +18,21 @@ namespace ATGE
 
 	public:
 		static void Run();
+
+	private:
+		void privInit();
+		void privShutdown();
+
+	private:
+		static ATGEngine* s_Instance;
+		static ATGEngine& Instance()
+		{
+			ATGE_ASSERT_DEBUG(s_Instance);
+			return *s_Instance;
+		}
+
+	private:
+		PlatformInterface m_PlatInterface;
 	};
 }
 

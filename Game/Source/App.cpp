@@ -5,6 +5,4 @@
 int main()
 {	
 	ATGE::ATGEngine::Run();
-
-	ATGE_ASSERT(false);
 }

@@ -1,10 +1,14 @@
 #include "ATGEngine.h"
 
 #include "Memory/MemoryManager.h"
+#include "Platform/PlatformInterface.h"
 
 namespace ATGE
 {
-	ATGEngine::ATGEngine()
+	ATGEngine* ATGEngine::s_Instance;
+
+	ATGEngine::ATGEngine() :
+		m_PlatInterface()
 	{
 	}
 
@@ -18,6 +22,33 @@ namespace ATGE
 		MemoryManager::setEngineArenaSize(g_ATGEArenaSizeDefault);
 		MemoryManager::openArena();
 
+		s_Instance = MemoryManager::allocate<ATGEngine>();
+
+		ATGEngine& inst = Instance();
+
+		inst.privInit();
+
+
+		while (inst.m_PlatInterface.pumpMessages()) {
+			Logger::trace("blah\n");
+		}
+
+
+		inst.privShutdown();
+	}
+
+	void ATGEngine::privInit()
+	{
+
 		ATGE_ASSERT(Logger::initLogging());
+		ATGE_ASSERT(this->m_PlatInterface.initPlatform());
+	}
+
+	void ATGEngine::privShutdown()
+	{
+		this->m_PlatInterface.shutdown();
+
+		MemoryManager::closeArena();
+		Logger::shutdown();
 	}
 }
