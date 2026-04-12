@@ -1,9 +1,11 @@
 #ifdef _WIN32
 
+#include "WindowsHandles.h"
+
 #include "Core/Memory/MemoryManager.h"
 #include "Core/Platform/PlatformInterface.h"
 #include "Core/Platform/WindowConfig.h"
-#include "WindowsHandles.h"
+#include "Core/Tools/GameTimer.h"
 
 namespace ATGE
 {
@@ -92,13 +94,6 @@ namespace ATGE
 		// If initially maximized, use SW_SHOWMAXIMIZED : SW_MAXIMIZE
 		ShowWindow(state->hwnd, show_window_command_flags);
 
-		// TODO Clock Setup (maybe)
-		// Clock setup
-		// LARGE_INTEGER frequency;
-		// QueryPerformanceFrequency(&frequency);
-		// clock_frequency = 1.0 / (f64)frequency.QuadPart;
-		// QueryPerformanceCounter(&start_time);
-
 		Logger::debug("Window succesfully created...\n");
 
 		this->m_InputQueue.startQueues();
@@ -132,6 +127,41 @@ namespace ATGE
 			DestroyWindow(state->hwnd);
 			state->hwnd = 0;
 		}
+	}
+
+	void PlatformInterface::calculateFrameStats(const GameTimer& gTimer)
+	{
+		// Code computes the average frames per second, and also the 
+		// average time it takes to render one frame.  These stats 
+		// are appended to the window caption bar.
+
+		static int frameCnt = 0;
+		static float timeElapsed = 0.0f;
+
+		frameCnt++;
+
+		// Compute averages over one second period.
+		if ((gTimer.TotalTime() - timeElapsed) >= 1.0f)
+		{
+			float fps = static_cast<float>(frameCnt);
+			float mspf = 1000.0f / fps;
+
+			char frameTime[128];
+			snprintf(frameTime, sizeof(frameTime), "    FPS: %.1f    Frame Time: %.2f (ms)", fps, mspf);
+
+			this->updateWindowText(frameTime);
+
+			frameCnt = 0;
+			timeElapsed += 1.0f;
+		}
+	}
+
+	void PlatformInterface::updateWindowText(const char* _AppName)
+	{
+		PS_WindowsState* state = static_cast<PS_WindowsState*>(this->m_PlatState);
+		if (!state || !state->hwnd || !_AppName) return;
+
+		SetWindowTextA(state->hwnd, _AppName);
 	}
 
 	void PlatformInterface::ConsolePrint(const char* message, u8 color)

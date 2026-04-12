@@ -151,6 +151,11 @@ namespace ATGE
 		ATGE_UNUSED(msg);
 	}
 
+	void Logger::info(const char* const msg, ...)
+	{
+		ATGE_UNUSED(msg);
+	}
+
 #endif
 
 #endif

@@ -19,10 +19,21 @@
     <Filter Include="Core\Tools">
       <UniqueIdentifier>{2EE342CE-1A9B-841B-83A2-5D776F791F0C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{40dff833-bb24-438b-998f-7b3f23d7d978}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Input">
+      <UniqueIdentifier>{27476814-c8fa-41fb-9019-ea39823c05e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data Structures">
+      <UniqueIdentifier>{ca1b12a9-e3d5-4ea7-acfd-b95581025937}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Memory">
+      <UniqueIdentifier>{fb60a7b1-2bef-4261-a665-eec553bd42d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Defines.h" />
-    <ClInclude Include="Source\Core\Memory\MemoryManager.h" />
     <ClInclude Include="Source\Core\Math\Align16.h">
       <Filter>Core\Math</Filter>
     </ClInclude>
@@ -65,18 +76,41 @@
     <ClInclude Include="Source\Core\Tools\ATGELogger.h">
       <Filter>Core\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core\ATGEngine.h" />
-    <ClInclude Include="Source\Core\Platform\PlatformInterface.h" />
-    <ClInclude Include="Source\Core\Platform\WindowConfig.h" />
-    <ClInclude Include="Source\Core\Platform\Windows\WindowsHandles.h" />
-    <ClInclude Include="Source\Engine\Input\InputManager.h" />
-    <ClInclude Include="Source\Engine\Input\InputEvent.h" />
-    <ClInclude Include="Source\Engine\Input\InputTypes.h" />
-    <ClInclude Include="Source\Core\Platform\InputQueue.h" />
-    <ClInclude Include="Source\DataStructures\SwapbackArray.h" />
+    <ClInclude Include="Source\ATGEngine.h" />
+    <ClInclude Include="Source\Core\Platform\InputQueue.h">
+      <Filter>Core\Platform\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Platform\Windows\WindowsHandles.h">
+      <Filter>Core\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Platform\WindowConfig.h">
+      <Filter>Core\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DataStructures\SwapbackArray.h">
+      <Filter>Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Tools\GameTimer.h">
+      <Filter>Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Input\InputTypes.h">
+      <Filter>Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Input\InputManager.h">
+      <Filter>Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Input\InputEvent.h">
+      <Filter>Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Memory\MemoryManager.h">
+      <Filter>Core\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Platform\PlatformInterface.h">
+      <Filter>Core\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Tools\TimeManager.h" />
+    <ClInclude Include="Source\Engine\Tools\FreezeTime.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Core\Memory\MemoryManager.cpp" />
     <ClCompile Include="Source\Core\Math\Matrix.cpp">
       <Filter>Core\Math</Filter>
     </ClCompile>
@@ -95,11 +129,29 @@
     <ClCompile Include="Source\Core\Tools\ATGELogger.cpp">
       <Filter>Core\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Core\ATGEngine.cpp" />
-    <ClCompile Include="Source\Core\Platform\Windows\PI_Windows.cpp" />
-    <ClCompile Include="Source\Engine\Input\InputManager.cpp" />
-    <ClCompile Include="Source\Core\Platform\InputQueue.cpp" />
-    <ClCompile Include="Source\DataStructures\SwapbackArray.cpp" />
-    <ClCompile Include="Source\Engine\Input\InputEvent.cpp" />
+    <ClCompile Include="Source\ATGEngine.cpp" />
+    <ClCompile Include="Source\Core\Platform\InputQueue.cpp">
+      <Filter>Core\Platform\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Platform\Windows\PI_Windows.cpp">
+      <Filter>Core\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DataStructures\SwapbackArray.cpp">
+      <Filter>Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Tools\GameTimer.cpp">
+      <Filter>Core\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Input\InputManager.cpp">
+      <Filter>Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Input\InputEvent.cpp">
+      <Filter>Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Memory\MemoryManager.cpp">
+      <Filter>Core\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Tools\TimeManager.cpp" />
+    <ClCompile Include="Source\Engine\Tools\FreezeTime.cpp" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,9 @@
 #include "ATGEngine.h"
 
-#include "Memory/MemoryManager.h"
-#include "Platform/PlatformInterface.h"
+#include "Core/Memory/MemoryManager.h"
+#include "Core/Platform/PlatformInterface.h"
+
+#include "Engine/Tools/TimeManager.h"
 
 namespace ATGE
 {
@@ -28,12 +30,24 @@ namespace ATGE
 
 		inst.privInit();
 
-
+		inst.m_Timer.Reset();
 		while (inst.m_PlatInterface.pumpMessages()) {
+			inst.m_Timer.Tick();
+#ifdef _DEBUG
+			inst.m_PlatInterface.calculateFrameStats(inst.m_Timer);
+#endif // _DEBUG
+
+			TimeManager::ProcessTime();
+
 			InputManager::processInputEvents();
 		}
 
 		inst.privShutdown();
+	}
+
+	const float ATGEngine::GetTimeInSeconds()
+	{
+		return Instance().m_Timer.TotalTime();
 	}
 
 	void ATGEngine::privInit()
@@ -42,6 +56,7 @@ namespace ATGE
 		ATGE_ASSERT(Logger::initLogging());
 		ATGE_ASSERT(this->m_PlatInterface.initPlatform());
 
+		TimeManager::Initialize();
 		InputManager::Initialize(this->m_PlatInterface.getInputQueue());
 	}
 

@@ -1,8 +1,9 @@
 #pragma once
 
-#include "Platform/PlatformInterface.h"
+#include "Core/Platform/PlatformInterface.h"
 
 // Member Variables
+#include "Core/Tools/GameTimer.h"
 #include "Engine/Input/InputManager.h"
 
 namespace ATGE
@@ -22,6 +23,9 @@ namespace ATGE
 	public:
 		static void Run();
 
+		// TODO Make private and hide access behind attorney
+		static const float GetTimeInSeconds();
+
 	private:
 		void privInit();
 		void privShutdown();
@@ -35,6 +39,7 @@ namespace ATGE
 		}
 
 	private:
+		GameTimer m_Timer;
 		PlatformInterface m_PlatInterface;
 	};
 }

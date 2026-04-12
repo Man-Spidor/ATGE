@@ -5,6 +5,7 @@
 namespace ATGE 
 {
 	struct WindowConfig;
+	class GameTimer;
 
 	class PlatformInterface
 	{
@@ -20,6 +21,9 @@ namespace ATGE
 		bool initPlatform(const WindowConfig& config);
 		bool pumpMessages();
 		void shutdown();
+
+		void calculateFrameStats(const GameTimer& gTimer);
+		void updateWindowText(const char* _AppName);
 
 		inline const void* getPlatform() const { return this->m_PlatState; };
 		inline InputQueue& getInputQueue() { return this->m_InputQueue; };

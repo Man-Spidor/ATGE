@@ -1,6 +1,4 @@
-#include "Core/ATGEngine.h"
-
-#include "Core/Tools/ATGELogger.h"
+#include "ATGEngine.h"
 
 int main()
 {	

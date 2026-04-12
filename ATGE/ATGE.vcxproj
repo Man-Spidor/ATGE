@@ -141,12 +141,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Engine\Tools\FreezeTime.h" />
+    <ClInclude Include="Source\Core\Tools\GameTimer.h" />
     <ClInclude Include="Source\Core\Platform\InputQueue.h" />
     <ClInclude Include="Source\DataStructures\SwapbackArray.h" />
     <ClInclude Include="Source\Engine\Input\InputManager.h" />
     <ClInclude Include="Source\Core\Platform\WindowConfig.h" />
     <ClInclude Include="Source\Core\Platform\PlatformInterface.h" />
-    <ClInclude Include="Source\Core\ATGEngine.h" />
+    <ClInclude Include="Source\ATGEngine.h" />
     <ClInclude Include="Source\Core\Platform\Windows\WindowsHandles.h" />
     <ClInclude Include="Source\Core\Tools\ATGELogger.h" />
     <ClInclude Include="Source\Core\Tools\ATGEAssert.h" />
@@ -166,14 +168,17 @@
     <ClInclude Include="Source\Defines.h" />
     <ClInclude Include="Source\Engine\Input\InputEvent.h" />
     <ClInclude Include="Source\Engine\Input\InputTypes.h" />
+    <ClInclude Include="Source\Engine\Tools\TimeManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Engine\Tools\FreezeTime.cpp" />
+    <ClCompile Include="Source\Core\Tools\GameTimer.cpp" />
     <ClCompile Include="Source\Core\Platform\InputQueue.cpp" />
     <ClCompile Include="Source\DataStructures\SwapbackArray.cpp" />
     <ClCompile Include="Source\Engine\Input\InputEvent.cpp" />
     <ClCompile Include="Source\Engine\Input\InputManager.cpp" />
     <ClCompile Include="Source\Core\Platform\Windows\PI_Windows.cpp" />
-    <ClCompile Include="Source\Core\ATGEngine.cpp" />
+    <ClCompile Include="Source\ATGEngine.cpp" />
     <ClCompile Include="Source\Core\Tools\ATGELogger.cpp" />
     <ClCompile Include="Source\Core\Math\Matrix.cpp" />
     <ClCompile Include="Source\Core\Math\Quat.cpp" />
@@ -181,6 +186,7 @@
     <ClCompile Include="Source\Core\Math\VectApp.cpp" />
     <ClCompile Include="Source\Core\Math\Vector.cpp" />
     <ClCompile Include="Source\Core\Memory\MemoryManager.cpp" />
+    <ClCompile Include="Source\Engine\Tools\TimeManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
