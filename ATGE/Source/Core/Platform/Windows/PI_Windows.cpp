@@ -83,6 +83,7 @@ namespace ATGE
 		ATGE_ASSERT_MSG(handle != 0, "Window creation failed!");
 
 		state->hwnd = handle;
+		SetWindowLongPtrA(handle, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(this));
 
 		// Show the window
 		bool should_activate = true;  // TODO: if the window should not accept input, this should be false.
@@ -100,11 +101,10 @@ namespace ATGE
 
 		Logger::debug("Window succesfully created...\n");
 
-		// InputAttorney::SetKeyboard(&this->m_Keyboard);
-		// InputAttorney::SetMouse(&this->m_Mouse);
-		// g_pKeyboardRef = &this->m_Keyboard;
-		// g_pMouseRef = &this->m_Mouse;
+		this->m_InputQueue.startQueues();
 
+		Logger::debug("Input Queue succesfully created...\n");
+		
 		return true;
     }
 
@@ -181,8 +181,15 @@ namespace ATGE
 	{
 		LRESULT result = 0;
 
+		auto* platform = reinterpret_cast<PlatformInterface*>(GetWindowLongPtrA(hwnd, GWLP_USERDATA));
+
+		if (!platform) {
+			return DefWindowProc(hwnd, uMsg, wParam, lParam);
+		}
+
+		InputQueue& queue = platform->getInputQueue();
+
 		switch (uMsg) {
-			// MOUSE MESSAGES
 		case WM_KEYDOWN:
 		{
 			if (wParam == VK_ESCAPE) {
@@ -190,16 +197,13 @@ namespace ATGE
 				return 0;
 			}
 
-			//const u8 key = static_cast<u8>(wParam);
-			//
-			//g_pKeyboardRef->onKeyPressed(key);
+			queue.pushKeyEvent(static_cast<KEY>(wParam),KeyEventType::KEY_PRESSED);
 		}
 		break;
 
 		case WM_KEYUP:
 		{
-			// const u8 key = static_cast<u8>(wParam);
-			// g_pKeyboardRef->onKeyReleased(key);
+			queue.pushKeyEvent(static_cast<KEY>(wParam), KeyEventType::KEY_RELEASED);
 		}
 		break;
 

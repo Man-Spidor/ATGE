@@ -7,7 +7,7 @@
 
 namespace ATGE
 {
-	class PS_WindowsState
+	class PS_WindowsState final
 	{
 	public:
 		HINSTANCE h_instance = NULL;

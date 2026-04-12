@@ -30,9 +30,8 @@ namespace ATGE
 
 
 		while (inst.m_PlatInterface.pumpMessages()) {
-			Logger::trace("blah\n");
+			InputManager::processInputEvents();
 		}
-
 
 		inst.privShutdown();
 	}
@@ -42,6 +41,8 @@ namespace ATGE
 
 		ATGE_ASSERT(Logger::initLogging());
 		ATGE_ASSERT(this->m_PlatInterface.initPlatform());
+
+		InputManager::Initialize(this->m_PlatInterface.getInputQueue());
 	}
 
 	void ATGEngine::privShutdown()

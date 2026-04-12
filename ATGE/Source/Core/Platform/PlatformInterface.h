@@ -1,5 +1,7 @@
 #pragma once
 
+#include "InputQueue.h"
+
 namespace ATGE 
 {
 	struct WindowConfig;
@@ -19,12 +21,15 @@ namespace ATGE
 		bool pumpMessages();
 		void shutdown();
 
-		inline const void* GetPlatform() const { return this->m_PlatState; };
+		inline const void* getPlatform() const { return this->m_PlatState; };
+		inline InputQueue& getInputQueue() { return this->m_InputQueue; };
 
 		static void ConsolePrint(const char* message, u8 color);
 		static void ConsolePrintError(const char* message, u8 color);
 
 	private:
+		InputQueue m_InputQueue;
+
 		void* m_PlatState;
 
 		const char* m_AppName;

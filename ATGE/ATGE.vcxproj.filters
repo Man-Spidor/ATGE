@@ -69,6 +69,11 @@
     <ClInclude Include="Source\Core\Platform\PlatformInterface.h" />
     <ClInclude Include="Source\Core\Platform\WindowConfig.h" />
     <ClInclude Include="Source\Core\Platform\Windows\WindowsHandles.h" />
+    <ClInclude Include="Source\Engine\Input\InputManager.h" />
+    <ClInclude Include="Source\Engine\Input\InputEvent.h" />
+    <ClInclude Include="Source\Engine\Input\InputTypes.h" />
+    <ClInclude Include="Source\Core\Platform\InputQueue.h" />
+    <ClInclude Include="Source\DataStructures\SwapbackArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Core\Memory\MemoryManager.cpp" />
@@ -92,5 +97,9 @@
     </ClCompile>
     <ClCompile Include="Source\Core\ATGEngine.cpp" />
     <ClCompile Include="Source\Core\Platform\Windows\PI_Windows.cpp" />
+    <ClCompile Include="Source\Engine\Input\InputManager.cpp" />
+    <ClCompile Include="Source\Core\Platform\InputQueue.cpp" />
+    <ClCompile Include="Source\DataStructures\SwapbackArray.cpp" />
+    <ClCompile Include="Source\Engine\Input\InputEvent.cpp" />
   </ItemGroup>
 </Project>

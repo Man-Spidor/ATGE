@@ -2,6 +2,9 @@
 
 #include "Platform/PlatformInterface.h"
 
+// Member Variables
+#include "Engine/Input/InputManager.h"
+
 namespace ATGE
 {
 	class ATGEngine final

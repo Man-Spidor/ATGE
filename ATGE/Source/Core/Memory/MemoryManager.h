@@ -34,6 +34,19 @@ namespace ATGE
 #endif
 		}
 
+		template<typename T, typename... Args>
+		static T* allocate(u32 num = 1, Args&&... args)
+		{
+#ifdef FRAMEWORK_H
+			PLACEMENT_NEW_BEGIN
+#undef new
+				return new(Instance().privAllocate(sizeof(T), num)) T(std::forward<Args>(args)...);
+			PLACEMENT_NEW_END
+#else
+			return new(Instance().privPush(sizeof(T), num)) T(std::forward<Args>(args)...);
+#endif
+		}
+
 	private:
 		void* privAllocate(size_t size, u32 num);
 

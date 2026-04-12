@@ -141,6 +141,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Platform\InputQueue.h" />
+    <ClInclude Include="Source\DataStructures\SwapbackArray.h" />
+    <ClInclude Include="Source\Engine\Input\InputManager.h" />
     <ClInclude Include="Source\Core\Platform\WindowConfig.h" />
     <ClInclude Include="Source\Core\Platform\PlatformInterface.h" />
     <ClInclude Include="Source\Core\ATGEngine.h" />
@@ -161,8 +164,14 @@
     <ClInclude Include="Source\Core\Math\Vector.h" />
     <ClInclude Include="Source\Core\Memory\MemoryManager.h" />
     <ClInclude Include="Source\Defines.h" />
+    <ClInclude Include="Source\Engine\Input\InputEvent.h" />
+    <ClInclude Include="Source\Engine\Input\InputTypes.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\Platform\InputQueue.cpp" />
+    <ClCompile Include="Source\DataStructures\SwapbackArray.cpp" />
+    <ClCompile Include="Source\Engine\Input\InputEvent.cpp" />
+    <ClCompile Include="Source\Engine\Input\InputManager.cpp" />
     <ClCompile Include="Source\Core\Platform\Windows\PI_Windows.cpp" />
     <ClCompile Include="Source\Core\ATGEngine.cpp" />
     <ClCompile Include="Source\Core\Tools\ATGELogger.cpp" />
