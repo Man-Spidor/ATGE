@@ -3,7 +3,7 @@
 #include "Core/Memory/MemoryManager.h"
 #include "Core/Platform/PlatformInterface.h"
 
-#include "Engine/Tools/TimeManager.h"
+#include "Engine/Tools/TimeAttorney.h"
 
 namespace ATGE
 {
@@ -37,7 +37,7 @@ namespace ATGE
 			inst.m_PlatInterface.calculateFrameStats(inst.m_Timer);
 #endif // _DEBUG
 
-			TimeManager::ProcessTime();
+			TimeAttorney::ProcessTime();
 
 			InputManager::processInputEvents();
 		}
@@ -56,7 +56,7 @@ namespace ATGE
 		ATGE_ASSERT(Logger::initLogging());
 		ATGE_ASSERT(this->m_PlatInterface.initPlatform());
 
-		TimeManager::Initialize();
+		TimeAttorney::Initialize();
 		InputManager::Initialize(this->m_PlatInterface.getInputQueue());
 	}
 

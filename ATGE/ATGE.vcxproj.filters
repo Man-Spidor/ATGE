@@ -109,6 +109,8 @@
     </ClInclude>
     <ClInclude Include="Source\Engine\Tools\TimeManager.h" />
     <ClInclude Include="Source\Engine\Tools\FreezeTime.h" />
+    <ClInclude Include="Source\Engine\Tools\TimeAttorney.h" />
+    <ClInclude Include="Source\ATGEAttorney.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Core\Math\Matrix.cpp">

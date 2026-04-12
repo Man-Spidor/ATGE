@@ -1,5 +1,5 @@
 #include "FreezeTime.h"
-#include "ATGEngine.h"
+#include "ATGEAttorney.h"
 #include "TimeManager.h"
 
 namespace ATGE
@@ -19,7 +19,7 @@ namespace ATGE
         this->testForFreezeKeys(); // time may pass f freeze mode activated
 
         // Adjust real time to actual game time
-        float currGameTime = ATGEngine::GetTimeInSeconds() - this->m_TotalFrozenTime;
+        float currGameTime = ATGEAttorney::GetTimeInSeconds() - this->m_TotalFrozenTime;
 
         // test if any extra frozen time occurred since prev_gametime
         float frameTime = currGameTime - prevTime;

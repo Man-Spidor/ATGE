@@ -10,6 +10,7 @@ namespace ATGE
 {
 	class ATGEngine final
 	{
+		friend class ATGEAttorney;
 		friend class MemoryManager;
 
 	private:
@@ -23,7 +24,7 @@ namespace ATGE
 	public:
 		static void Run();
 
-		// TODO Make private and hide access behind attorney
+	private:
 		static const float GetTimeInSeconds();
 
 	private:

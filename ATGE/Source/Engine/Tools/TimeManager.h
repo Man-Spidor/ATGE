@@ -8,7 +8,7 @@ namespace ATGE
 	{
 		friend class TimeAttorney;
 		friend class MemoryManager;
-	public:
+	private:
 		TimeManager() = default;
 		/// Copy constructor is deleted to prevent unintended copying.
 		TimeManager(const TimeManager& other) = delete;

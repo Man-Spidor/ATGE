@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\ATGEAttorney.h" />
     <ClInclude Include="Source\Engine\Tools\FreezeTime.h" />
     <ClInclude Include="Source\Core\Tools\GameTimer.h" />
     <ClInclude Include="Source\Core\Platform\InputQueue.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="Source\Defines.h" />
     <ClInclude Include="Source\Engine\Input\InputEvent.h" />
     <ClInclude Include="Source\Engine\Input\InputTypes.h" />
+    <ClInclude Include="Source\Engine\Tools\TimeAttorney.h" />
     <ClInclude Include="Source\Engine\Tools\TimeManager.h" />
   </ItemGroup>
   <ItemGroup>
