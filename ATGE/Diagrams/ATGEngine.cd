@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ATGE::ATGEngine">
+    <Position X="6.25" Y="3" Width="1.75" />
+    <Members>
+      <Method Name="~ATGEngine" Hidden="true" />
+      <Method Name="ATGEngine" Hidden="true" />
+      <Method Name="operator=" Hidden="true" />
+      <Method Name="privInit" Hidden="true" />
+      <Method Name="privShutdown" Hidden="true" />
+      <Field Name="s_Instance" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAQAgAAAAgAAAQAAAAQQAAgAAgAAAY=</HashCode>
+      <FileName>Source\ATGEngine.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_Timer" />
+      <Field Name="m_PlatInterface" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ATGE::ATGEAttorney" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\ATGEAttorney.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATGE::MemoryManager">
+    <Position X="0.5" Y="3" Width="2.25" />
+    <Members>
+      <Method Name="~MemoryManager" Hidden="true" />
+      <Method Name="Instance" Hidden="true" />
+      <Method Name="MemoryManager" Hidden="true" />
+      <Method Name="operator=" Hidden="true" />
+      <Method Name="privAllocate" Hidden="true" />
+      <Field Name="s_Instance" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AgQAAACAAAAAAAAAQgAAAAoAgAAAAAAAQAggAAAgAAA=</HashCode>
+      <FileName>Source\Core\Memory\MemoryManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATGE::GameTimer">
+    <Position X="11.5" Y="2.25" Width="1.5" />
+    <Members>
+      <Method Name="~GameTimer" Hidden="true" />
+      <Method Name="DeltaTime" Hidden="true" />
+      <Method Name="GameTimer" Hidden="true" />
+      <Field Name="m_BaseTime" Hidden="true" />
+      <Field Name="m_CurrTime" Hidden="true" />
+      <Field Name="m_DeltaTime" Hidden="true" />
+      <Field Name="m_PausedTime" Hidden="true" />
+      <Field Name="m_PrevTime" Hidden="true" />
+      <Field Name="m_SecondsPerCount" Hidden="true" />
+      <Field Name="m_Stopped" Hidden="true" />
+      <Field Name="m_StopTime" Hidden="true" />
+      <Method Name="operator=" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gAAAEAAAACAABAIBAAAIAAAAACICIAEAIAAgABAAQAA=</HashCode>
+      <FileName>Source\Core\Tools\GameTimer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATGE::PlatformInterface">
+    <Position X="3.5" Y="4.5" Width="2" />
+    <Members>
+      <Method Name="~PlatformInterface" Hidden="true" />
+      <Field Name="m_AppName" Hidden="true" />
+      <Field Name="m_Height" Hidden="true" />
+      <Field Name="m_Width" Hidden="true" />
+      <Field Name="m_XPos" Hidden="true" />
+      <Field Name="m_YPos" Hidden="true" />
+      <Method Name="operator=" Hidden="true" />
+      <Method Name="PlatformInterface" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABQQAAAAAAAAAAAACCAAAwgYAIgDA=</HashCode>
+      <FileName>Source\Core\Platform\PlatformInterface.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_InputQueue" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ATGE::InputQueue">
+    <Position X="7.25" Y="5.25" Width="1.5" />
+    <Members>
+      <Method Name="~InputQueue" Hidden="true" />
+      <Method Name="getKeyQueue" Hidden="true" />
+      <Method Name="InputQueue" Hidden="true" />
+      <Method Name="operator=" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAEAAAAAAAAAAACAAAgAAEAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Source\Core\Platform\InputQueue.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_KeyEvents" />
+    </ShowAsAssociation>
+  </Class>
+  <Struct Name="ATGE::SwapbackArray&lt;T&gt;">
+    <Position X="11.25" Y="5.5" Width="2" />
+    <Members>
+      <Method Name="~SwapbackArray" Hidden="true" />
+      <Method Name="operator[]" Hidden="true" />
+      <Method Name="operator=" Hidden="true" />
+      <Method Name="SwapbackArray" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAgACAAAAAAAAEAIAAAIADAAECAAMAIAAgAAACQAA=</HashCode>
+      <FileName>Source\DataStructures\SwapbackArray.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
