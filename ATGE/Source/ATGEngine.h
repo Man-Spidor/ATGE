@@ -8,6 +8,8 @@
 
 namespace ATGE
 {
+	class I_SceneScript;
+
 	class ATGEngine final
 	{
 		friend class ATGEAttorney;
@@ -22,6 +24,9 @@ namespace ATGE
 		~ATGEngine();
 
 	public:
+
+		// TODO: find a neater way to do this
+		static void Initialize(I_SceneScript* pScript);
 		static void Run();
 
 	private:

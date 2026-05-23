@@ -4,6 +4,7 @@
 #include "Core/Platform/PlatformInterface.h"
 
 #include "Engine/Tools/TimeAttorney.h"
+#include "Engine/Scene/SceneAttorney.h"
 
 namespace ATGE
 {
@@ -14,23 +15,33 @@ namespace ATGE
 	{
 	}
 
-
 	ATGEngine::~ATGEngine()
 	{
 	}
 
-	void ATGEngine::Run()
+	void ATGEngine::Initialize(I_SceneScript* pScript)
 	{
+		ATGE_ASSERT(Logger::initLogging());
+		ATGE_ASSERT(MemoryManager::initMemMan());
+
 		MemoryManager::setEngineArenaSize(g_ATGEArenaSizeDefault);
-		MemoryManager::openArena();
+		ATGE_ASSERT(MemoryManager::OpenArena());
 
+		// Create the engine instance and initialize everything else after
 		s_Instance = MemoryManager::allocate<ATGEngine>();
-
 		ATGEngine& inst = Instance();
-
 		inst.privInit();
 
+		SceneAttorney::SetStartupScript(pScript);
+	}
+
+	void ATGEngine::Run()
+	{
+		SceneAttorney::Start();
+
+		ATGEngine& inst = Instance();
 		inst.m_Timer.Reset();
+
 		while (inst.m_PlatInterface.pumpMessages()) {
 			inst.m_Timer.Tick();
 #ifdef _DEBUG
@@ -39,7 +50,8 @@ namespace ATGE
 
 			TimeAttorney::ProcessTime();
 
-			InputManager::processInputEvents();
+			InputManager::ProcessInputEvents();
+			SceneAttorney::UpdateLoop();
 		}
 
 		inst.privShutdown();
@@ -51,20 +63,20 @@ namespace ATGE
 	}
 
 	void ATGEngine::privInit()
-	{
-
-		ATGE_ASSERT(Logger::initLogging());
+	{		
 		ATGE_ASSERT(this->m_PlatInterface.initPlatform());
 
 		TimeAttorney::Initialize();
 		InputManager::Initialize(this->m_PlatInterface.getInputQueue());
+		
+		SceneAttorney::Initialize();
 	}
 
 	void ATGEngine::privShutdown()
 	{
 		this->m_PlatInterface.shutdown();
 
-		MemoryManager::closeArena();
+		MemoryManager::CloseArena();
 		Logger::shutdown();
 	}
 }

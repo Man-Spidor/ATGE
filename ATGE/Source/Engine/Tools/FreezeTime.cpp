@@ -49,7 +49,7 @@ namespace ATGE
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);
 
-                InputManager::processInputEvents();
+                InputManager::ProcessInputEvents();
             }
 
             keyPressedAndReleased = true; // k pressed and released.
@@ -85,7 +85,7 @@ namespace ATGE
                     DispatchMessage(&msg);
                 }
 
-                InputManager::processInputEvents();
+                InputManager::ProcessInputEvents();
             }
         }
     }

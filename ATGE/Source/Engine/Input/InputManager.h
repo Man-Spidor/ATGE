@@ -20,7 +20,7 @@ namespace ATGE
 		
 		static void Initialize(InputQueue& _inputQueue);
 
-		static void processInputEvents();
+		static void ProcessInputEvents();
 
 		static b8 GetKeyState(KEY key);
 

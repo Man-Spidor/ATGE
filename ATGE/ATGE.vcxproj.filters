@@ -25,11 +25,50 @@
     <Filter Include="Engine\Input">
       <UniqueIdentifier>{27476814-c8fa-41fb-9019-ea39823c05e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Memory">
+      <UniqueIdentifier>{fb60a7b1-2bef-4261-a665-eec553bd42d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Tools">
+      <UniqueIdentifier>{74d58105-b92e-43a3-81c5-aa06563debd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Tools\Time">
+      <UniqueIdentifier>{3db26528-608e-45ef-8092-90cf25c256e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene">
+      <UniqueIdentifier>{9d37f208-2250-434f-bc7b-5c413d782d41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene\Managers">
+      <UniqueIdentifier>{fd6e8089-1382-4686-8624-3e25c51edea5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene\Scripts">
+      <UniqueIdentifier>{cb9f2f2a-9d72-4774-9fd3-24b6d5c7a166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Diagrams">
+      <UniqueIdentifier>{cbbdb23f-144f-43c7-8273-a0fc9a1181c0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Data Structures">
       <UniqueIdentifier>{ca1b12a9-e3d5-4ea7-acfd-b95581025937}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Memory">
-      <UniqueIdentifier>{fb60a7b1-2bef-4261-a665-eec553bd42d9}</UniqueIdentifier>
+    <Filter Include="Engine\Scene\Managers\Draw">
+      <UniqueIdentifier>{c4d8fc65-39d6-4604-8ff5-b6141b1850d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene\Managers\Update">
+      <UniqueIdentifier>{aaafb065-964c-47fe-8182-6b6dc06ee3da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Entity">
+      <UniqueIdentifier>{d7167682-0f01-4f4e-85d6-eed2ffd2c35d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Entity\Components">
+      <UniqueIdentifier>{45ba0f26-91ee-401e-b22a-68afe0fe9b25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Entity\Components\Update">
+      <UniqueIdentifier>{0086bb8c-ce8a-44df-b34d-9396b59e3fb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Entity\Components\Draw">
+      <UniqueIdentifier>{e23d693e-dab2-48ee-9c40-0b90ab157809}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene\Managers\Transform">
+      <UniqueIdentifier>{8b4524eb-1765-4c0e-9ff5-16c999e0ba3d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -107,10 +146,50 @@
     <ClInclude Include="Source\Core\Platform\PlatformInterface.h">
       <Filter>Core\Platform</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Engine\Tools\TimeManager.h" />
-    <ClInclude Include="Source\Engine\Tools\FreezeTime.h" />
-    <ClInclude Include="Source\Engine\Tools\TimeAttorney.h" />
     <ClInclude Include="Source\ATGEAttorney.h" />
+    <ClInclude Include="Source\Engine\Tools\FreezeTime.h">
+      <Filter>Engine\Tools\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Tools\TimeAttorney.h">
+      <Filter>Engine\Tools\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Tools\TimeManager.h">
+      <Filter>Engine\Tools\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Scene\Scene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Scene\SceneManager.h">
+      <Filter>Engine\Scene\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Scene\Scripts\I_SceneScript.h">
+      <Filter>Engine\Scene\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Scene\Managers\DrawManager.h">
+      <Filter>Engine\Scene\Managers\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Scene\Managers\UpdateManager.h">
+      <Filter>Engine\Scene\Managers\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Entity\Components\DrawComponent.h">
+      <Filter>Engine\Entity\Components\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Entity\Components\TransformComponent.h">
+      <Filter>Engine\Entity\Components\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Scene\Managers\TransformManager.h">
+      <Filter>Engine\Scene\Managers\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Scene\Managers\ModelManager.h" />
+    <ClInclude Include="Source\Engine\Scene\Managers\TextureManager.h" />
+    <ClInclude Include="Source\Engine\Scene\Managers\MaterialManager.h" />
+    <ClInclude Include="Source\Graphics\Model.h" />
+    <ClInclude Include="Source\Graphics\Data_InstanceCB.h" />
+    <ClInclude Include="Source\Graphics\Data_MaterialCB.h" />
+    <ClInclude Include="Source\Engine\Entity\Components\MaterialComponent.h" />
+    <ClInclude Include="Source\Graphics\Material.h" />
+    <ClInclude Include="Source\Graphics\Texture.h" />
+    <ClInclude Include="Source\Engine\Scene\SceneAttorney.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Core\Math\Matrix.cpp">
@@ -153,7 +232,36 @@
     <ClCompile Include="Source\Core\Memory\MemoryManager.cpp">
       <Filter>Core\Memory</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Engine\Tools\TimeManager.cpp" />
-    <ClCompile Include="Source\Engine\Tools\FreezeTime.cpp" />
+    <ClCompile Include="Source\Engine\Tools\FreezeTime.cpp">
+      <Filter>Engine\Tools\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Tools\TimeManager.cpp">
+      <Filter>Engine\Tools\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Scene\Scene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Scene\SceneManager.cpp">
+      <Filter>Engine\Scene\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Scene\Managers\DrawManager.cpp">
+      <Filter>Engine\Scene\Managers\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Scene\Managers\UpdateManager.cpp">
+      <Filter>Engine\Scene\Managers\Update</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Scene\Managers\TransformManager.cpp">
+      <Filter>Engine\Scene\Managers\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Scene\Managers\ModelManager.cpp" />
+    <ClCompile Include="Source\Engine\Scene\Managers\TextureManager.cpp" />
+    <ClCompile Include="Source\Engine\Scene\Managers\MaterialManager.cpp" />
+    <ClCompile Include="Source\Graphics\Model.cpp" />
+    <ClCompile Include="Source\Engine\Entity\Components\MaterialComponent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagrams\ATGEngine.cd">
+      <Filter>Diagrams</Filter>
+    </None>
   </ItemGroup>
 </Project>

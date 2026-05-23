@@ -43,6 +43,15 @@ namespace ATGE
 	static_assert(sizeof(b8) == 1);
 	static_assert(sizeof(b32) == 4);
 
+	// Engine Defines:
+	using EntityID = u32;
+	using ModelID = u32;
+	using TransformID = u32;
+	using TextureID = u32;
+	using MaterialID = u32;
+
+	constexpr u32 g_ATGEUndefinedID = UINT_MAX;
+
 	// Memory Size Defines
 	constexpr u32 ATGEMemSizeKB1 = 1024;
 	constexpr u32 ATGEMemSizeMB1 = ATGEMemSizeKB1 * 1000;

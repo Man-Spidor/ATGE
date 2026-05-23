@@ -141,6 +141,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Engine\Entity\Components\MaterialComponent.h" />
+    <ClInclude Include="Source\Engine\Scene\Managers\MaterialManager.h" />
+    <ClInclude Include="Source\Engine\Scene\Managers\ModelManager.h" />
+    <ClInclude Include="Source\Engine\Entity\Components\TransformComponent.h" />
+    <ClInclude Include="Source\Engine\Entity\Components\DrawComponent.h" />
+    <ClInclude Include="Source\Engine\Scene\Managers\DrawManager.h" />
+    <ClInclude Include="Source\Engine\Scene\Scene.h" />
+    <ClInclude Include="Source\Engine\Scene\SceneAttorney.h" />
+    <ClInclude Include="Source\Engine\Scene\Scripts\I_SceneScript.h" />
+    <ClInclude Include="Source\Engine\Scene\SceneManager.h" />
     <ClInclude Include="Source\ATGEAttorney.h" />
     <ClInclude Include="Source\Engine\Tools\FreezeTime.h" />
     <ClInclude Include="Source\Core\Tools\GameTimer.h" />
@@ -171,8 +181,22 @@
     <ClInclude Include="Source\Engine\Input\InputTypes.h" />
     <ClInclude Include="Source\Engine\Tools\TimeAttorney.h" />
     <ClInclude Include="Source\Engine\Tools\TimeManager.h" />
+    <ClInclude Include="Source\Engine\Scene\Managers\UpdateManager.h" />
+    <ClInclude Include="Source\Engine\Scene\Managers\TransformManager.h" />
+    <ClInclude Include="Source\Engine\Scene\Managers\TextureManager.h" />
+    <ClInclude Include="Source\Graphics\Data_InstanceCB.h" />
+    <ClInclude Include="Source\Graphics\Data_MaterialCB.h" />
+    <ClInclude Include="Source\Graphics\Material.h" />
+    <ClInclude Include="Source\Graphics\Model.h" />
+    <ClInclude Include="Source\Graphics\Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Engine\Entity\Components\MaterialComponent.cpp" />
+    <ClCompile Include="Source\Engine\Scene\Managers\MaterialManager.cpp" />
+    <ClCompile Include="Source\Engine\Scene\Managers\ModelManager.cpp" />
+    <ClCompile Include="Source\Engine\Scene\Managers\DrawManager.cpp" />
+    <ClCompile Include="Source\Engine\Scene\Scene.cpp" />
+    <ClCompile Include="Source\Engine\Scene\SceneManager.cpp" />
     <ClCompile Include="Source\Engine\Tools\FreezeTime.cpp" />
     <ClCompile Include="Source\Core\Tools\GameTimer.cpp" />
     <ClCompile Include="Source\Core\Platform\InputQueue.cpp" />
@@ -189,6 +213,13 @@
     <ClCompile Include="Source\Core\Math\Vector.cpp" />
     <ClCompile Include="Source\Core\Memory\MemoryManager.cpp" />
     <ClCompile Include="Source\Engine\Tools\TimeManager.cpp" />
+    <ClCompile Include="Source\Engine\Scene\Managers\UpdateManager.cpp" />
+    <ClCompile Include="Source\Engine\Scene\Managers\TransformManager.cpp" />
+    <ClCompile Include="Source\Engine\Scene\Managers\TextureManager.cpp" />
+    <ClCompile Include="Source\Graphics\Model.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagrams\ATGEngine.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

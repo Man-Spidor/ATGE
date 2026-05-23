@@ -47,7 +47,7 @@ namespace ATGE
 		s_Instance = MemoryManager::allocate<InputManager>(1, _inputQueue);
 	}
 
-	void InputManager::processInputEvents()
+	void InputManager::ProcessInputEvents()
 	{
 		Instance().privProcessInputEvents();
 	}
