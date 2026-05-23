@@ -2,7 +2,7 @@
 
 namespace ATGE
 {
-	MemoryManager g_MemoryInstance;
+	alignas(MemoryManager) static char s_MemoryManagerStorage[sizeof(MemoryManager)];
 
 	MemoryManager* MemoryManager::s_Instance;
 
@@ -12,21 +12,36 @@ namespace ATGE
 		m_BufferSize(g_ATGEArenaSizeDefault),
 		m_FreeSize(g_ATGEArenaSizeDefault)
 	{
-		s_Instance = this;
 	}
 
-	void MemoryManager::openArena()
+	bool MemoryManager::initMemMan()
 	{
-		auto& inst = Instance();
+#ifdef FRAMEWORK_H
+		PLACEMENT_NEW_BEGIN
+#undef new
+			s_Instance = new(s_MemoryManagerStorage) MemoryManager();
+		PLACEMENT_NEW_END
+#else
+		s_Instance = new(s_MemoryManagerStorage) MemoryManager();
+#endif
+
+		return s_Instance != nullptr;
+	}
+
+	bool MemoryManager::OpenArena()
+	{
+		auto& inst = *s_Instance;
 
 		inst.m_pMemoryBuffer = new char[inst.m_BufferSize];
 		inst.m_pNextFree = inst.m_pMemoryBuffer;
 		inst.m_FreeSize = inst.m_BufferSize;
 
 		Logger::info("Creating Memory Arena at %p. Size of %d\n", inst.m_pMemoryBuffer, inst.m_BufferSize);
+
+		return inst.m_pMemoryBuffer != nullptr;
 	}
 
-	void MemoryManager::closeArena()
+	void MemoryManager::CloseArena()
 	{
 		auto& inst = Instance();
 

@@ -8,6 +8,8 @@
 
 namespace ATGE
 {
+	alignas(Logger) static char s_LoggerStorage[sizeof(Logger)];
+
 	Logger* Logger::s_Instance = nullptr;
 
 	const char* Logger::level_strings[6] = {
@@ -19,18 +21,30 @@ namespace ATGE
 		"[TRACE]: "
 	};
 
+	Logger::Logger() :
+		m_Buff(),
+		m_OutBuff()
+	{
+	}
+
 	bool Logger::initLogging()
 	{
 		// TODO: create log file :P
+#ifdef FRAMEWORK_H
+		PLACEMENT_NEW_BEGIN
+#undef new
+			s_Instance = new(s_LoggerStorage) Logger();
+		PLACEMENT_NEW_END
+#else
+		s_Instance = new(s_LoggerStorage) Logger();
+#endif
 
-		s_Instance = MemoryManager::allocate<Logger>();
-
-		return true;
+		return s_Instance != nullptr;
 	}
+
 	bool Logger::shutdown()
 	{
 		// TODO: cleanup log file :P
-		// delete s_Instance;
 		return true;
 	}
 

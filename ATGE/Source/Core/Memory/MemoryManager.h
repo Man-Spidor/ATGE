@@ -6,7 +6,7 @@ namespace ATGE
 	{
 		friend class ATGEngine;
 
-	public:
+	private:
 		MemoryManager();
 		MemoryManager(const MemoryManager& other) = default;
 		MemoryManager& operator=(const MemoryManager& other) = default;
@@ -14,9 +14,10 @@ namespace ATGE
 		MemoryManager& operator=(MemoryManager&& other) = default;
 		~MemoryManager() = default;
 
-	private:
-		static void openArena();
-		static void closeArena();
+		static bool initMemMan();
+
+		static bool OpenArena();
+		static void CloseArena();
 
 	public:
 		static void setEngineArenaSize(u32 _BufferSize);

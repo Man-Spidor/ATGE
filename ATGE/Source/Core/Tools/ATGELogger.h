@@ -30,6 +30,13 @@ namespace ATGE
 
 	class Logger final
 	{
+		Logger();
+		Logger(const Logger& other) = default;
+		Logger& operator=(const Logger& other) = default;
+		Logger(Logger&& other) = default;
+		Logger& operator=(Logger&& other) = default;
+		~Logger() = default;
+
 		static const char* level_strings[6];
 		static const u32 LogBuffSize = 512;
 
@@ -75,9 +82,8 @@ namespace ATGE
 		static Logger* s_Instance;
 		static Logger& Instance()
 		{
-			// TODO make this a proper singleton
-			static Logger instance;
-			return instance;
+			// cant use an assert here, so just have to pray !
+			return *s_Instance;
 		}
 #pragma warning( pop ) 
 
