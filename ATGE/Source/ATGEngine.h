@@ -13,10 +13,11 @@ namespace ATGE
 	class ATGEngine final
 	{
 		friend class ATGEAttorney;
-		friend class MemoryManager;
-
+		
+	public:
+		explicit ATGEngine(MemoryManager::AllocKey);
+	
 	private:
-		ATGEngine();
 		ATGEngine(const ATGEngine& other) = default;
 		ATGEngine& operator=(const ATGEngine& other) = default;
 		ATGEngine(ATGEngine&& other) = default;

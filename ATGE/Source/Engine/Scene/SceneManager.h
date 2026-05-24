@@ -7,10 +7,11 @@ namespace ATGE
 	class SceneManager final
 	{
 		friend class SceneAttorney;
-		friend class MemoryManager;
 
+	public:
+		explicit SceneManager(MemoryManager::AllocKey);
+	
 	private:
-		SceneManager() = default;
 		SceneManager(const SceneManager& other) = delete;
 		SceneManager& operator=(const SceneManager& other) = delete;
 		SceneManager(SceneManager&& other) = delete;
@@ -27,7 +28,6 @@ namespace ATGE
 		static void DrawLoop();
 		static void UpdateLoop();
 
-		// TODO: decide if this needs to be a singleton...
 	private:
 		static SceneManager* s_Instance;
 		static SceneManager& Instance()

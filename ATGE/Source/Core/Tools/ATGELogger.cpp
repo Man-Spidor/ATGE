@@ -27,7 +27,7 @@ namespace ATGE
 	{
 	}
 
-	bool Logger::initLogging()
+	bool Logger::Initialize()
 	{
 		// TODO: create log file :P
 #ifdef FRAMEWORK_H
@@ -39,10 +39,12 @@ namespace ATGE
 		s_Instance = new(s_LoggerStorage) Logger();
 #endif
 
+		Logger::info("Logger Started Up!\n");
+
 		return s_Instance != nullptr;
 	}
 
-	bool Logger::shutdown()
+	bool Logger::Shutdown()
 	{
 		// TODO: cleanup log file :P
 		return true;
@@ -51,7 +53,7 @@ namespace ATGE
 #pragma warning( push )
 #pragma warning( disable : 4514 ) // unreferenced inline function has been removed
 #pragma warning( disable: 4711 ) // function selected for automatic inline expansion
-	void Logger::reportAssertFailure(const char* condition, const char* msg, const char* file, u32 line)
+	void Logger::ReportAssertFailure(const char* condition, const char* msg, const char* file, u32 line)
 	{
 		log(LogLevel::LEVEL_FATAL, "Assertion Failure: %s\n Message: %s\n In File: %s\n Line: %d\n", condition, msg, file, line);
 	}

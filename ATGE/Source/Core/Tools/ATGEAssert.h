@@ -18,7 +18,7 @@
     if (condition) {                                                              \
     }                                                                             \
     else {                                                                        \
-        ATGE::Logger::reportAssertFailure(#condition, "", __FILE__, __LINE__);    \
+        ATGE::Logger::ReportAssertFailure(#condition, "", __FILE__, __LINE__);    \
     }                                                                             \
                                                                                   \
 }                                                                                 \
@@ -28,7 +28,7 @@
     if (condition) {                                                              \
     }                                                                             \
     else {                                                                        \
-        ATGE::Logger::reportAssertFailure(#condition, message, __FILE__, __LINE__);  \
+        ATGE::Logger::ReportAssertFailure(#condition, message, __FILE__, __LINE__);  \
     }                                                                             \
                                                                                   \
 }      
@@ -40,7 +40,7 @@
     if (condition) {                                                              \
     }                                                                             \
     else {                                                                        \
-        ATGE::Logger::reportAssertFailure(#condition, "", __FILE__, __LINE__);    \
+        ATGE::Logger::ReportAssertFailure(#condition, "", __FILE__, __LINE__);    \
     }                                                                             \
                                                                                   \
 }           
@@ -50,7 +50,7 @@
     if (condition) {                                                              \
     }                                                                             \
     else {                                                                        \
-        ATGE::Logger::reportAssertFailure(#condition, message, __FILE__, __LINE__);  \
+        ATGE::Logger::ReportAssertFailure(#condition, message, __FILE__, __LINE__);  \
     }                                                                             \
                                                                                   \
 }                                                                       \

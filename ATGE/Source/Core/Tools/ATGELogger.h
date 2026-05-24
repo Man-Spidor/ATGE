@@ -2,8 +2,6 @@
 
 #include "Defines.h"
 
-// #include <string>
-
 namespace ATGE
 {
 #define ATGE_ENABLE_LOGGING
@@ -30,6 +28,9 @@ namespace ATGE
 
 	class Logger final
 	{
+		friend class LoggerAttorney;
+
+	private:
 		Logger();
 		Logger(const Logger& other) = default;
 		Logger& operator=(const Logger& other) = default;
@@ -40,16 +41,14 @@ namespace ATGE
 		static const char* level_strings[6];
 		static const u32 LogBuffSize = 512;
 
-	public:
-		static bool initLogging();
-		static bool shutdown();
+		static bool Initialize();
+		static bool Shutdown();
 
-		static void reportAssertFailure(const char* condition, const char* msg, const char* file, u32 line);
-
-	private:
 		void privOut(LogLevel level);
 
 	public:
+		static void ReportAssertFailure(const char* condition, const char* msg, const char* file, u32 line);
+		
 		static void fatal(const char* const msg, ...);
 		static void error(const char* const msg, ...);
 

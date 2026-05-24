@@ -190,6 +190,8 @@
     <ClInclude Include="Source\Graphics\Material.h" />
     <ClInclude Include="Source\Graphics\Texture.h" />
     <ClInclude Include="Source\Engine\Scene\SceneAttorney.h" />
+    <ClInclude Include="Source\Core\Memory\MemoryAttorney.h" />
+    <ClInclude Include="Source\Core\Tools\LoggerAttorney.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Core\Math\Matrix.cpp">

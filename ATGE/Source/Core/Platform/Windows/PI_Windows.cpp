@@ -11,7 +11,18 @@ namespace ATGE
 {
 	LRESULT CALLBACK WindowProc(HWND hwnd, u32 uMsg, WPARAM wParam, LPARAM lParam);
 
-    bool PlatformInterface::initPlatform()
+	PlatformInterface::PlatformInterface() :
+		m_InputQueue(),
+		m_PlatState(),
+		m_AppName(),
+		m_XPos(),
+		m_YPos(),
+		m_Width(),
+		m_Height()
+	{
+	}
+
+	bool PlatformInterface::initPlatform()
     {
         WindowConfig ac;
         return this->initPlatform(ac);

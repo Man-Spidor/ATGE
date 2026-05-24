@@ -4,7 +4,14 @@ namespace ATGE
 {
 	class MemoryManager
 	{
-		friend class ATGEngine;
+		friend class MemoryAttorney;
+	public:
+		struct AllocKey final
+		{
+			friend class MemoryManager;
+		private:
+			AllocKey() = default;
+		};
 
 	private:
 		MemoryManager();
@@ -14,8 +21,7 @@ namespace ATGE
 		MemoryManager& operator=(MemoryManager&& other) = default;
 		~MemoryManager() = default;
 
-		static bool initMemMan();
-
+		static bool Initialize();
 		static bool OpenArena();
 		static void CloseArena();
 
@@ -34,6 +40,18 @@ namespace ATGE
 			return new(Instance().privPush(sizeof(T), num)) T();
 #endif
 		}
+		template<typename T>
+		static T* allocatePrivate(u32 num = 1)
+		{
+#ifdef FRAMEWORK_H
+			PLACEMENT_NEW_BEGIN
+#undef new
+				return new(Instance().privAllocate(sizeof(T), num)) T(AllocKey{});
+			PLACEMENT_NEW_END
+#else
+			return new(Instance().privPush(sizeof(T), num)) T(AllocKey{});
+#endif
+		}
 
 		template<typename T, typename... Args>
 		static T* allocate(u32 num = 1, Args&&... args)
@@ -45,6 +63,19 @@ namespace ATGE
 			PLACEMENT_NEW_END
 #else
 			return new(Instance().privPush(sizeof(T), num)) T(std::forward<Args>(args)...);
+#endif
+		}
+
+		template<typename T, typename... Args>
+		static T* allocatePrivate(u32 num = 1, Args&&... args)
+		{
+#ifdef FRAMEWORK_H
+			PLACEMENT_NEW_BEGIN
+#undef new
+				return new(Instance().privAllocate(sizeof(T), num)) T(AllocKey{}, std::forward<Args>(args)...);
+			PLACEMENT_NEW_END
+#else
+			return new(Instance().privPush(sizeof(T), num)) T(AllocKey{}, std::forward<Args>(args)...);
 #endif
 		}
 

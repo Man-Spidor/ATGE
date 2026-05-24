@@ -4,9 +4,14 @@ namespace ATGE
 {
 	SceneManager* SceneManager::s_Instance = nullptr;
 
+	SceneManager::SceneManager(MemoryManager::AllocKey) :
+		m_CurrScene()
+	{
+	}
+
 	void SceneManager::Initialize()
 	{
-		s_Instance = MemoryManager::allocate<SceneManager>();
+		s_Instance = MemoryManager::allocatePrivate<SceneManager>();
 	}
 
 	void SceneManager::Start()

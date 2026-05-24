@@ -1,6 +1,7 @@
 #include "ATGEngine.h"
 
-#include "Core/Memory/MemoryManager.h"
+#include "Core/Tools/LoggerAttorney.h"
+#include "Core/Memory/MemoryAttorney.h"
 #include "Core/Platform/PlatformInterface.h"
 
 #include "Engine/Tools/TimeAttorney.h"
@@ -10,7 +11,7 @@ namespace ATGE
 {
 	ATGEngine* ATGEngine::s_Instance;
 
-	ATGEngine::ATGEngine() :
+	ATGEngine::ATGEngine(MemoryManager::AllocKey) :
 		m_PlatInterface()
 	{
 	}
@@ -21,14 +22,14 @@ namespace ATGE
 
 	void ATGEngine::Initialize(I_SceneScript* pScript)
 	{
-		ATGE_ASSERT(Logger::initLogging());
-		ATGE_ASSERT(MemoryManager::initMemMan());
+		ATGE_ASSERT(LoggerAttorney::Initialize());
+		ATGE_ASSERT(MemoryAttorney::InitMemMan());
 
-		MemoryManager::setEngineArenaSize(g_ATGEArenaSizeDefault);
-		ATGE_ASSERT(MemoryManager::OpenArena());
+		ATGE_ASSERT(MemoryAttorney::OpenArena());
 
 		// Create the engine instance and initialize everything else after
-		s_Instance = MemoryManager::allocate<ATGEngine>();
+		Logger::info("Creating Engine Instance!\n");
+		s_Instance = MemoryManager::allocatePrivate<ATGEngine>();
 		ATGEngine& inst = Instance();
 		inst.privInit();
 
@@ -76,7 +77,7 @@ namespace ATGE
 	{
 		this->m_PlatInterface.shutdown();
 
-		MemoryManager::CloseArena();
-		Logger::shutdown();
+		MemoryAttorney::CloseArena();
+		LoggerAttorney::Shutdown();
 	}
 }

@@ -10,7 +10,7 @@ namespace ATGE
 	class PlatformInterface
 	{
 	public:
-		PlatformInterface() = default;
+		PlatformInterface();
 		PlatformInterface(const PlatformInterface& other) = default;
 		PlatformInterface& operator=(const PlatformInterface& other) = default;
 		PlatformInterface(PlatformInterface&& other) = default;

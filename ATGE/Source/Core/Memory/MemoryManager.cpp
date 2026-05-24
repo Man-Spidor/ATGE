@@ -14,7 +14,7 @@ namespace ATGE
 	{
 	}
 
-	bool MemoryManager::initMemMan()
+	bool MemoryManager::Initialize()
 	{
 #ifdef FRAMEWORK_H
 		PLACEMENT_NEW_BEGIN
@@ -30,13 +30,13 @@ namespace ATGE
 
 	bool MemoryManager::OpenArena()
 	{
-		auto& inst = *s_Instance;
+		auto& inst = Instance();
 
 		inst.m_pMemoryBuffer = new char[inst.m_BufferSize];
 		inst.m_pNextFree = inst.m_pMemoryBuffer;
 		inst.m_FreeSize = inst.m_BufferSize;
 
-		Logger::info("Creating Memory Arena at %p. Size of %d\n", inst.m_pMemoryBuffer, inst.m_BufferSize);
+		Logger::info("Memory Arena Opened at %p. Size of %d bytes!\n", inst.m_pMemoryBuffer, inst.m_BufferSize);
 
 		return inst.m_pMemoryBuffer != nullptr;
 	}

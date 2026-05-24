@@ -141,6 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Memory\MemoryAttorney.h" />
+    <ClInclude Include="Source\Core\Tools\LoggerAttorney.h" />
     <ClInclude Include="Source\Engine\Entity\Components\MaterialComponent.h" />
     <ClInclude Include="Source\Engine\Scene\Managers\MaterialManager.h" />
     <ClInclude Include="Source\Engine\Scene\Managers\ModelManager.h" />
