@@ -5,6 +5,7 @@ namespace ATGE
 	class MemoryManager
 	{
 		friend class MemoryAttorney;
+
 	public:
 		struct AllocKey final
 		{
@@ -26,7 +27,7 @@ namespace ATGE
 		static void CloseArena();
 
 	public:
-		static void setEngineArenaSize(u32 _BufferSize);
+		static void SetEngineArenaSize(u32 _BufferSize);
 
 		template<typename T>
 		static T* allocate(u32 num = 1)
@@ -90,8 +91,8 @@ namespace ATGE
 		static MemoryManager* s_Instance;
 
 	private:
-		char* m_pMemoryBuffer;
-		char* m_pNextFree;
+		u8* m_pMemoryBuffer;
+		u8* m_pNextFree;
 		u32 m_BufferSize;
 		u32 m_FreeSize;
 	};

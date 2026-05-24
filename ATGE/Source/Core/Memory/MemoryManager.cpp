@@ -32,7 +32,7 @@ namespace ATGE
 	{
 		auto& inst = Instance();
 
-		inst.m_pMemoryBuffer = new char[inst.m_BufferSize];
+		inst.m_pMemoryBuffer = new u8[inst.m_BufferSize];
 		inst.m_pNextFree = inst.m_pMemoryBuffer;
 		inst.m_FreeSize = inst.m_BufferSize;
 
@@ -50,7 +50,7 @@ namespace ATGE
 		delete[] inst.m_pMemoryBuffer;
 	}
 
-	void MemoryManager::setEngineArenaSize(u32 _BufferSize)
+	void MemoryManager::SetEngineArenaSize(u32 _BufferSize)
 	{
 		Instance().m_BufferSize = _BufferSize;
 	}

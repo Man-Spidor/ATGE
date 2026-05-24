@@ -57,5 +57,5 @@ namespace ATGE
 	constexpr u32 ATGEMemSizeMB1 = ATGEMemSizeKB1 * 1000;
 
 	// Default Engine Memory Size
-	constexpr u32 g_ATGEArenaSizeDefault = ATGEMemSizeKB1 * 1000;
+	constexpr u32 g_ATGEArenaSizeDefault = ATGEMemSizeMB1;
 }
